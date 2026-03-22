@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Smoking & Cardiovascular System | Medical Research Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs2-fix@0.0.1/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6edf4 100%);
+            color: #1e293b;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c2410c;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(105deg, #0f172a 0%, #1e293b 50%, #2d3a4a 100%);
+            border-radius: 2rem;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(226, 100, 20, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #fcd34d 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(226, 100, 20, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            color: #f97316;
+            font-weight: 600;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border: 1px solid #eef2f6;
+        }
+
+        .qr-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .qr-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .qr-box h3 {
+            margin-bottom: 1rem;
+            color: #1e293b;
+            font-size: 1.2rem;
+        }
+
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        #qrcode img {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .url-input {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .url-input input {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.8rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            background: #f8fafc;
+        }
+
+        .url-input button {
+            background: #f97316;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.8rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .url-input button:hover {
+            background: #c2410c;
+            transform: scale(0.98);
+        }
+
+        .copy-btn {
+            background: #2d3a4a;
+            margin-top: 0.5rem;
+        }
+
+        .copy-btn:hover {
+            background: #1e293b;
+        }
+
+        .instruction {
+            background: #fef9f0;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #c2410c;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+            border-color: #fed7aa;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #c2410c;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid #eef2f6;
+        }
+
+        .card-header {
+            padding: 1.5rem 1.8rem;
+            background: linear-gradient(135deg, #fef9f0 0%, #fff7ed 100%);
+            border-bottom: 3px solid #f97316;
+        }
+
+        .card-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #1e293b;
+        }
+
+        .card-header h2 i {
+            color: #f97316;
+            font-size: 1.8rem;
+        }
+
+        .card-body {
+            padding: 1.8rem;
+        }
+
+        /* Mechanism Highlight */
+        .mechanism-highlight {
+            background: linear-gradient(135deg, #fef9f0 0%, #fff3e6 100%);
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #f97316;
+        }
+
+        .chemical-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .chemical-tag {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #c2410c;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .danger-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .danger-item {
+            background: #fef2f0;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid #ffe0d0;
+        }
+
+        .danger-item i {
+            font-size: 2.5rem;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
+        }
+
+        .effects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .effect-card {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .effect-icon {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #f97316;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .timeline-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 1.8rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .timeline-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 150px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .fact-ticker {
+            background: #2d3a4a;
+            color: white;
+            border-radius: 1rem;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .btn-refresh {
+            background: #f97316;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 1.5rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 640px) {
+            .effects-grid {
+                grid-template-columns: 1fr;
+            }
+            .danger-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-heartbeat"></i> CARDIOVASCULAR RESEARCH
+            </div>
+            <h1>What Does Smoking Do to My Heart & Circulatory System?</h1>
+            <p>Scientific evidence reveals how tobacco chemicals destroy arterial walls, trigger fatal blockages, and damage every heartbeat.</p>
+        </div>
+    </div>
+
+    <!-- QR CODE SECTION - NEW -->
+    <div class="qr-section">
+        <h2><i class="fas fa-qrcode"></i> Share This Medical Resource</h2>
+        <p style="color: #64748b; margin-bottom: 1rem;">Scan the QR code to access this page on your mobile device or share it with others</p>
+        
+        <div class="qr-container">
+            <div class="qr-box">
+                <h3><i class="fas fa-mobile-alt"></i> Scan to View</h3>
+                <div id="qrcode"></div>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #64748b;">Use your phone camera to scan</p>
+            </div>
+            
+            <div class="qr-box">
+                <h3><i class="fas fa-link"></i> Custom URL</h3>
+                <div class="url-input">
+                    <input type="text" id="pageUrl" placeholder="Enter your website URL" value="">
+                    <button id="generateBtn"><i class="fas fa-qrcode"></i> Generate QR</button>
+                </div>
+                <div class="url-input">
+                    <button id="copyUrlBtn" class="copy-btn"><i class="fas fa-copy"></i> Copy Current URL</button>
+                </div>
+                <div class="instruction">
+                    <i class="fas fa-info-circle"></i> <strong>How to share this page:</strong><br>
+                    1. Deploy this page to a web server (GitHub Pages, Netlify, etc.)<br>
+                    2. Or use a local server: run <code>python -m http.server 8000</code><br>
+                    3. Enter your URL above and click Generate QR<br>
+                    4. Scan with any mobile device to view instantly
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">2-4x</div><div class="stat-label">Higher risk of heart disease</div></div>
+        <div class="stat-card"><div class="stat-number">30%</div><div class="stat-label">Increased stroke risk</div></div>
+        <div class="stat-card"><div class="stat-number">15%</div><div class="stat-label">Oxygen reduction in blood</div></div>
+        <div class="stat-card"><div class="stat-number">#1</div><div class="stat-label">Preventable CVD cause</div></div>
+    </div>
+
+    <!-- Main 2-Column Layout -->
+    <div class="main-grid">
+        <!-- Left Column: Sticky Arteries & Clogging -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-artery"></i> The Sticky Artery Mechanism</h2>
+            </div>
+            <div class="card-body">
+                <div class="mechanism-highlight">
+                    <p><i class="fas fa-flask"></i> <strong>The chemicals in cigarettes make the walls of your arteries sticky.</strong> This causes fatty material (LDL cholesterol, fibrinogen, cellular debris) to stick to the walls. The fatty material can begin to clog your arteries and reduce the space for blood to flow properly — a process called <strong>atherosclerosis</strong>.</p>
+                    <div class="chemical-list">
+                        <span class="chemical-tag"><i class="fas fa-smoking"></i> Nicotine</span>
+                        <span class="chemical-tag"><i class="fas fa-fire"></i> Tar</span>
+                        <span class="chemical-tag"><i class="fas fa-wind"></i> CO</span>
+                        <span class="chemical-tag"><i class="fas fa-biohazard"></i> Formaldehyde</span>
+                        <span class="chemical-tag"><i class="fas fa-microscope"></i> Heavy metals</span>
+                    </div>
+                </div>
+                <div class="danger-columns">
+                    <div class="danger-item">
+                        <i class="fas fa-heart-broken"></i>
+                        <h3>Heart Attack</h3>
+                        <p>If the arteries that carry blood to your heart get clogged, it can lead to a <strong>myocardial infarction</strong>. Cardiac muscle dies from oxygen deprivation.</p>
+                    </div>
+                    <div class="danger-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Stroke</h3>
+                        <p>If the arteries that carry blood to your brain get clogged, it can lead to a <strong>stroke</strong>. Brain cells begin dying within minutes — permanent disability or death.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Immediate Effects -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-bolt"></i> Immediate & Systemic Effects</h2>
+            </div>
+            <div class="card-body">
+                <p style="margin-bottom: 1rem; font-weight: 500;"><i class="fas fa-exclamation-triangle" style="color:#f97316;"></i> Smoking affects your heart and blood vessels within seconds:</p>
+                <div class="effects-grid">
+                    <div class="effect-card">
+                        <div class="effect-icon"><i class="fas fa-tint"></i></div>
+                        <div class="effect-text"><strong>Increased risk of blood clots</strong><span>Hypercoagulable state & platelet aggregation</span></div>
+                    </div>
+                    <div class="effect-card">
+                        <div class="effect-icon"><i class="fas fa-heart"></i></div>
+                        <div class="effect-text"><strong>Instant rise in heart rate</strong><span>+10–25 bpm within minutes</span></div>
+                    </div>
+                    <div class="effect-card">
+                        <div class="effect-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="effect-text"><strong>Instant rise in blood pressure</strong><span>Vasoconstriction + adrenaline surge</span></div>
+                    </div>
+                    <div class="effect-card">
+                        <div class="effect-icon"><i class="fas fa-lungs"></i></div>
+                        <div class="effect-text"><strong>Reduced oxygen delivery</strong><span>Carbon monoxide binds hemoglobin → hypoxemia</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Section -->
+    <div class="timeline-section">
+        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center;"><i class="fas fa-hourglass-half"></i> How Smoking Destroys Your Circulation: Step by Step</div>
+        <div class="timeline-steps">
+            <div class="step"><div style="font-weight: 800; color: #f97316;">Step 1</div><div><i class="fas fa-smog"></i> Inhale toxins</div><small>Endothelial injury</small></div>
+            <div class="step"><div style="font-weight: 800; color: #f97316;">Step 2</div><div><i class="fas fa-hand-holding-heart"></i> Sticky walls</div><small>Inflammation & adhesion</small></div>
+            <div class="step"><div style="font-weight: 800; color: #f97316;">Step 3</div><div><i class="fas fa-charging-station"></i> Fatty plaque</div><small>Atherosclerotic buildup</small></div>
+            <div class="step"><div style="font-weight: 800; color: #f97316;">Step 4</div><div><i class="fas fa-ban"></i> Arterial narrowing</div><small>Reduced blood flow</small></div>
+            <div class="step"><div style="font-weight: 800; color: #f97316;">Step 5</div><div><i class="fas fa-bolt"></i> Heart attack / Stroke</div><small>Plaque rupture + clot</small></div>
+        </div>
+    </div>
+
+    <!-- Dynamic Facts Section -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+            <h2><i class="fas fa-newspaper"></i> Clinical Evidence & Key Takeaways</h2>
+        </div>
+        <div class="card-body">
+            <div class="fact-ticker">
+                <span><i class="fas fa-quote-left"></i> <span id="dynamicFact">The chemicals in cigarettes make artery walls sticky, initiating a cascade of fatty deposits and clots.</span></span>
+                <button class="btn-refresh" id="refreshFactBtn"><i class="fas fa-sync-alt"></i> New fact</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <i class="fas fa-database"></i> Sources: American Heart Association, WHO, CDC, The New England Journal of Medicine | Scan QR Code to share this vital information
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs2-fix@0.0.1/qrcode.min.js"></script>
+<script>
+    // Get current page URL
+    const currentUrl = window.location.href;
+    const urlInput = document.getElementById('pageUrl');
+    
+    // Set current URL in input field
+    if (urlInput) {
+        urlInput.value = currentUrl;
+    }
+    
+    // Initialize QR Code with current URL
+    let qrcode = null;
+    
+    function generateQRCode(url) {
+        const qrcodeDiv = document.getElementById('qrcode');
+        qrcodeDiv.innerHTML = '';
+        
+        try {
+            qrcode = new QRCode(qrcodeDiv, {
+                text: url,
+                width: 200,
+                height: 200,
+                colorDark: "#c2410c",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        } catch (error) {
+            qrcodeDiv.innerHTML = '<p style="color: red;">Error generating QR code. Please check the URL.</p>';
+        }
+    }
+    
+    // Generate initial QR code
+    if (currentUrl && currentUrl !== '') {
+        generateQRCode(currentUrl);
+    }
+    
+    // Generate button click handler
+    const generateBtn = document.getElementById('generateBtn');
+    if (generateBtn) {
+        generateBtn.addEventListener('click', function() {
+            let customUrl = urlInput.value.trim();
+            if (customUrl === '') {
+                customUrl = currentUrl;
+                urlInput.value = currentUrl;
+            }
+            if (!customUrl.startsWith('http://') && !customUrl.startsWith('https://')) {
+                customUrl = 'https://' + customUrl;
+            }
+            generateQRCode(customUrl);
+        });
+    }
+    
+    // Copy URL button
+    const copyBtn = document.getElementById('copyUrlBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const urlToCopy = urlInput.value.trim() || currentUrl;
+            navigator.clipboard.writeText(urlToCopy).then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert('Could not copy URL. Please select and copy manually.');
+            });
+        });
+    }
+    
+    // Dynamic facts library
+    const factLibrary = [
+        "The chemicals in cigarettes make the walls of your arteries sticky. This causes fatty material to stick to the walls, clogging arteries and reducing blood flow.",
+        "If the arteries that carry blood to your heart get clogged, it can lead to a heart attack (myocardial infarction).",
+        "If the arteries that carry blood to your brain get clogged, it can lead to a stroke — a leading cause of disability.",
+        "Smoking increases your risk of blood clots by making platelets stickier and raising fibrinogen levels.",
+        "Smoking causes an instant rise to your heart rate — within minutes, nicotine can increase heart rate by 10–20 beats per minute.",
+        "Smoking causes an instant rise to your blood pressure — each cigarette temporarily raises systolic BP by 5–10 mmHg.",
+        "Smoking reduces the amount of oxygen delivered to the rest of your body because carbon monoxide binds to hemoglobin.",
+        "Tobacco smoke contains over 7,000 chemicals, at least 69 of which are known to damage the cardiovascular endothelium.",
+        "Smokers are 2 to 4 times more likely to develop coronary artery disease compared to non-smokers.",
+        "Secondhand smoke increases the risk of heart disease by 25-30%."
+    ];
+    
+    let currentFactIndex = 0;
+    const factSpan = document.getElementById('dynamicFact');
+    const refreshBtn = document.getElementById('refreshFactBtn');
+    
+    function updateRandomFact() {
+        let newIndex = Math.floor(Math.random() * factLibrary.length);
+        while (factLibrary.length > 1 && newIndex === currentFactIndex) {
+            newIndex = Math.floor(Math.random() * factLibrary.length);
+        }
+        currentFactIndex = newIndex;
+        if (factSpan) {
+            factSpan.style.opacity = '0';
+            setTimeout(() => {
+                if (factSpan) {
+                    factSpan.textContent = factLibrary[currentFactIndex];
+                    factSpan.style.opacity = '1';
+                }
+            }, 150);
+            factSpan.style.transition = 'opacity 0.2s';
+        }
+    }
+    
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', updateRandomFact);
+    }
+    
+    if (factSpan && factLibrary.length) {
+        const randomStart = Math.floor(Math.random() * factLibrary.length);
+        currentFactIndex = randomStart;
+        factSpan.textContent = factLibrary[randomStart];
+    }
+</script>
+</body>
+</html>
